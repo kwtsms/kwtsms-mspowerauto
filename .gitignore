@@ -1,0 +1,31 @@
+# Local development only
+reference/
+docs/
+.claude/
+CLAUDE.md
+.worktrees/
+.superpowers/
+.remember/
+napkin.md
+.env
+.env.*
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if testing tools used)
+node_modules/
+
+# Python (if testing tools used)
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Playwright
+.playwright*
