@@ -368,6 +368,140 @@
         },
         "x-ms-visibility": "advanced"
       }
+    },
+    "/send/": {
+      "post": {
+        "summary": "Send SMS",
+        "description": "Send an SMS message to one or more recipients. For bulk sends, provide comma-separated numbers (max 200 per request). Numbers must be in international format, digits only (for example 96598765432).",
+        "operationId": "SendSMS",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "description": "kwtSMS username",
+                  "title": "Username",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "username"
+                  }
+                },
+                "password": {
+                  "type": "string",
+                  "description": "kwtSMS password",
+                  "title": "Password",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "password"
+                  }
+                },
+                "sender": {
+                  "type": "string",
+                  "description": "Sender ID",
+                  "title": "Sender ID",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "senderID"
+                  }
+                },
+                "mobile": {
+                  "type": "string",
+                  "description": "Recipient phone number(s), comma-separated for bulk (max 200). Digits only, international format (for example 96598765432)",
+                  "title": "Mobile Number(s)"
+                },
+                "message": {
+                  "type": "string",
+                  "description": "Message content. English: 160 chars/page, Arabic: 70 chars/page. No emojis or HTML.",
+                  "title": "Message"
+                },
+                "test": {
+                  "type": "integer",
+                  "description": "Set to 1 for test mode (message queued but not delivered, credits recoverable). Default: 0",
+                  "title": "Test Mode",
+                  "default": 0,
+                  "enum": [
+                    0,
+                    1
+                  ],
+                  "x-ms-visibility": "advanced"
+                }
+              },
+              "required": [
+                "username",
+                "password",
+                "sender",
+                "mobile",
+                "message"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SMS send result",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "OK on success, ERROR on failure",
+                  "title": "Result"
+                },
+                "msg-id": {
+                  "type": "string",
+                  "description": "Message identifier (save this for status lookups)",
+                  "title": "Message ID"
+                },
+                "numbers": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Count of numbers accepted and dispatched",
+                  "title": "Numbers Sent"
+                },
+                "points-charged": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "SMS credits deducted",
+                  "title": "Points Charged"
+                },
+                "balance-after": {
+                  "type": "number",
+                  "description": "Account balance after deduction",
+                  "title": "Balance After"
+                },
+                "unix-timestamp": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "Server timestamp (GMT+3 Asia/Kuwait)",
+                  "title": "Timestamp"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (only present on error)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-visibility": "important"
+      }
     }
   },
   "definitions": {},
