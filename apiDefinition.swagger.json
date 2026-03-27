@@ -1,0 +1,127 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "kwtSMS",
+    "description": "Send single or bulk SMS messages worldwide through the kwtSMS gateway. Check your credit balance, list approved sender IDs, validate phone numbers, and verify country coverage.",
+    "version": "1.0",
+    "contact": {
+      "name": "kwtSMS Support",
+      "url": "https://www.kwtsms.com/support.html",
+      "email": "support@kwtsms.com"
+    }
+  },
+  "host": "www.kwtsms.com",
+  "basePath": "/API",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/balance/": {
+      "post": {
+        "summary": "Check Balance",
+        "description": "Check available SMS credits and total purchased credits for your account.",
+        "operationId": "CheckBalance",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "description": "kwtSMS username",
+                  "title": "Username",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "username"
+                  }
+                },
+                "password": {
+                  "type": "string",
+                  "description": "kwtSMS password",
+                  "title": "Password",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "password"
+                  }
+                }
+              },
+              "required": [
+                "username",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Balance retrieved successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "OK on success, ERROR on failure",
+                  "title": "Result"
+                },
+                "available": {
+                  "type": "number",
+                  "description": "Available SMS credits",
+                  "title": "Available Credits"
+                },
+                "purchased": {
+                  "type": "number",
+                  "description": "Total purchased SMS credits",
+                  "title": "Purchased Credits"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (only present on error)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-visibility": "important"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": [],
+  "x-ms-connector-metadata": [
+    {
+      "propertyName": "Website",
+      "propertyValue": "https://www.kwtsms.com"
+    },
+    {
+      "propertyName": "Privacy policy",
+      "propertyValue": "https://www.kwtsms.com/privacy.html"
+    },
+    {
+      "propertyName": "Categories",
+      "propertyValue": "Communication"
+    }
+  ]
+}
