@@ -102,6 +102,272 @@
         },
         "x-ms-visibility": "important"
       }
+    },
+    "/senderid/": {
+      "post": {
+        "summary": "List Sender IDs",
+        "description": "List all approved sender IDs for your kwtSMS account.",
+        "operationId": "ListSenderIDs",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "description": "kwtSMS username",
+                  "title": "Username",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "username"
+                  }
+                },
+                "password": {
+                  "type": "string",
+                  "description": "kwtSMS password",
+                  "title": "Password",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "password"
+                  }
+                }
+              },
+              "required": [
+                "username",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sender IDs retrieved successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "OK on success, ERROR on failure",
+                  "title": "Result"
+                },
+                "senderid": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "List of approved sender IDs",
+                  "title": "Sender IDs"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (only present on error)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-visibility": "advanced"
+      }
+    },
+    "/coverage/": {
+      "post": {
+        "summary": "Check Coverage",
+        "description": "List active country prefixes available for sending SMS on your account.",
+        "operationId": "CheckCoverage",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "description": "kwtSMS username",
+                  "title": "Username",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "username"
+                  }
+                },
+                "password": {
+                  "type": "string",
+                  "description": "kwtSMS password",
+                  "title": "Password",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "password"
+                  }
+                }
+              },
+              "required": [
+                "username",
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Coverage list retrieved successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "OK on success, ERROR on failure",
+                  "title": "Result"
+                },
+                "coverage": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "List of active country prefixes",
+                  "title": "Coverage"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (only present on error)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-visibility": "advanced"
+      }
+    },
+    "/validate/": {
+      "post": {
+        "summary": "Validate Numbers",
+        "description": "Validate phone numbers before sending. Returns numbers grouped as OK (valid), ER (format error), or NR (no route).",
+        "operationId": "ValidateNumbers",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "description": "kwtSMS username",
+                  "title": "Username",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "username"
+                  }
+                },
+                "password": {
+                  "type": "string",
+                  "description": "kwtSMS password",
+                  "title": "Password",
+                  "x-ms-visibility": "internal",
+                  "x-ms-dynamic-values": {
+                    "builtInOperation": "connectionParameters",
+                    "parameters": {},
+                    "value-path": "password"
+                  }
+                },
+                "mobile": {
+                  "type": "string",
+                  "description": "Phone number(s) to validate, comma-separated (digits only, international format, for example 96598765432)",
+                  "title": "Mobile Number(s)"
+                }
+              },
+              "required": [
+                "username",
+                "password",
+                "mobile"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Validation results",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "OK on success, ERROR on failure",
+                  "title": "Result"
+                },
+                "mobile": {
+                  "type": "object",
+                  "description": "Validation results grouped by status",
+                  "title": "Validation Results",
+                  "properties": {
+                    "OK": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Valid and routable numbers",
+                      "title": "Valid Numbers"
+                    },
+                    "ER": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Numbers with format errors",
+                      "title": "Error Numbers"
+                    },
+                    "NR": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Numbers with no route (country not activated)",
+                      "title": "No Route Numbers"
+                    }
+                  }
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (only present on error)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-visibility": "advanced"
+      }
     }
   },
   "definitions": {},
