@@ -231,7 +231,7 @@
     "/coverage/": {
       "post": {
         "summary": "Check Coverage",
-        "description": "List active country prefixes available for sending SMS on your account.",
+        "description": "List active country codes available for sending SMS on your account.",
         "operationId": "CheckCoverage",
         "parameters": [
           {
@@ -287,8 +287,8 @@
                   "items": {
                     "type": "string"
                   },
-                  "description": "List of active country prefixes",
-                  "title": "Prefixes"
+                  "description": "List of active country codes",
+                  "title": "Country Codes"
                 },
                 "code": {
                   "type": "string",
