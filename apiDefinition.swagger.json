@@ -98,6 +98,29 @@
                 }
               }
             }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "ERROR",
+                  "title": "Result"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (for example ERR003)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description",
+                  "title": "Error Description"
+                }
+              }
+            }
           }
         },
         "x-ms-visibility": "important"
@@ -177,6 +200,29 @@
                 }
               }
             }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "ERROR",
+                  "title": "Result"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (for example ERR003)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description",
+                  "title": "Error Description"
+                }
+              }
+            }
           }
         },
         "x-ms-visibility": "advanced"
@@ -236,13 +282,13 @@
                   "description": "OK on success, ERROR on failure",
                   "title": "Result"
                 },
-                "coverage": {
+                "prefixes": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   },
                   "description": "List of active country prefixes",
-                  "title": "Coverage"
+                  "title": "Prefixes"
                 },
                 "code": {
                   "type": "string",
@@ -252,6 +298,29 @@
                 "description": {
                   "type": "string",
                   "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "ERROR",
+                  "title": "Result"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (for example ERR003)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description",
                   "title": "Error Description"
                 }
               }
@@ -360,6 +429,29 @@
                 "description": {
                   "type": "string",
                   "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "ERROR",
+                  "title": "Result"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (for example ERR003)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description",
                   "title": "Error Description"
                 }
               }
@@ -494,6 +586,29 @@
                 "description": {
                   "type": "string",
                   "description": "Error description (only present on error)",
+                  "title": "Error Description"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "ERROR",
+                  "title": "Result"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Error code (for example ERR003)",
+                  "title": "Error Code"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Error description",
                   "title": "Error Description"
                 }
               }
