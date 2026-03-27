@@ -27,44 +27,6 @@
         "summary": "Check Balance",
         "description": "Check available SMS credits and total purchased credits for your account.",
         "operationId": "CheckBalance",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "type": "string",
-                  "description": "kwtSMS username",
-                  "title": "Username",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "username"
-                  }
-                },
-                "password": {
-                  "type": "string",
-                  "description": "kwtSMS password",
-                  "title": "Password",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "password"
-                  }
-                }
-              },
-              "required": [
-                "username",
-                "password"
-              ]
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Balance retrieved successfully",
@@ -131,44 +93,6 @@
         "summary": "List Sender IDs",
         "description": "List all approved sender IDs for your kwtSMS account.",
         "operationId": "ListSenderIDs",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "type": "string",
-                  "description": "kwtSMS username",
-                  "title": "Username",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "username"
-                  }
-                },
-                "password": {
-                  "type": "string",
-                  "description": "kwtSMS password",
-                  "title": "Password",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "password"
-                  }
-                }
-              },
-              "required": [
-                "username",
-                "password"
-              ]
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Sender IDs retrieved successfully",
@@ -233,44 +157,6 @@
         "summary": "Check Coverage",
         "description": "List active country codes available for sending SMS on your account.",
         "operationId": "CheckCoverage",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "type": "string",
-                  "description": "kwtSMS username",
-                  "title": "Username",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "username"
-                  }
-                },
-                "password": {
-                  "type": "string",
-                  "description": "kwtSMS password",
-                  "title": "Password",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "password"
-                  }
-                }
-              },
-              "required": [
-                "username",
-                "password"
-              ]
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Coverage list retrieved successfully",
@@ -343,28 +229,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
-                  "type": "string",
-                  "description": "kwtSMS username",
-                  "title": "Username",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "username"
-                  }
-                },
-                "password": {
-                  "type": "string",
-                  "description": "kwtSMS password",
-                  "title": "Password",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "password"
-                  }
-                },
                 "mobile": {
                   "type": "string",
                   "description": "Phone number(s) to validate, comma-separated (digits only, international format, for example 96598765432)",
@@ -372,8 +236,6 @@
                 }
               },
               "required": [
-                "username",
-                "password",
                 "mobile"
               ]
             }
@@ -474,39 +336,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "username": {
-                  "type": "string",
-                  "description": "kwtSMS username",
-                  "title": "Username",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "username"
-                  }
-                },
-                "password": {
-                  "type": "string",
-                  "description": "kwtSMS password",
-                  "title": "Password",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "password"
-                  }
-                },
-                "sender": {
-                  "type": "string",
-                  "description": "Sender ID",
-                  "title": "Sender ID",
-                  "x-ms-visibility": "internal",
-                  "x-ms-dynamic-values": {
-                    "builtInOperation": "connectionParameters",
-                    "parameters": {},
-                    "value-path": "senderID"
-                  }
-                },
                 "mobile": {
                   "type": "string",
                   "description": "Recipient phone number(s), comma-separated for bulk (max 200). Digits only, international format (for example 96598765432)",
@@ -530,9 +359,6 @@
                 }
               },
               "required": [
-                "username",
-                "password",
-                "sender",
                 "mobile",
                 "message"
               ]

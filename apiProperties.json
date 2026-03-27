@@ -41,6 +41,38 @@
     },
     "iconBrandColor": "#FFA200",
     "capabilities": [],
+    "policyTemplateInstances": [
+      {
+        "templateId": "setproperty",
+        "title": "Inject username into body",
+        "parameters": {
+          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
+          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "username",
+          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "@connectionParameters('username')",
+          "x-ms-apimTemplate-policySection": "Request"
+        }
+      },
+      {
+        "templateId": "setproperty",
+        "title": "Inject password into body",
+        "parameters": {
+          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
+          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "password",
+          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "@connectionParameters('password')",
+          "x-ms-apimTemplate-policySection": "Request"
+        }
+      },
+      {
+        "templateId": "setproperty",
+        "title": "Inject sender into body",
+        "parameters": {
+          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
+          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "sender",
+          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "@connectionParameters('senderID')",
+          "x-ms-apimTemplate-policySection": "Request"
+        }
+      }
+    ],
     "publisher": "kwtSMS",
     "stackOwner": "kwtSMS"
   }
