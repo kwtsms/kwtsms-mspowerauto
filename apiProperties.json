@@ -1,0 +1,47 @@
+{
+  "properties": {
+    "connectionParameters": {
+      "username": {
+        "type": "string",
+        "uiDefinition": {
+          "displayName": "Username",
+          "description": "Your kwtSMS account username",
+          "tooltip": "Enter your kwtSMS username (not your mobile number)",
+          "constraints": {
+            "tabIndex": 1,
+            "required": "true"
+          }
+        }
+      },
+      "password": {
+        "type": "securestring",
+        "uiDefinition": {
+          "displayName": "Password",
+          "description": "Your kwtSMS account password",
+          "tooltip": "Enter your kwtSMS password",
+          "constraints": {
+            "tabIndex": 2,
+            "clearText": false,
+            "required": "true"
+          }
+        }
+      },
+      "senderID": {
+        "type": "string",
+        "uiDefinition": {
+          "displayName": "Sender ID",
+          "description": "Your approved sender ID",
+          "tooltip": "Enter your approved kwtSMS sender ID (case sensitive)",
+          "constraints": {
+            "tabIndex": 3,
+            "required": "true"
+          }
+        }
+      }
+    },
+    "iconBrandColor": "#FFA200",
+    "capabilities": [],
+    "publisher": "kwtSMS",
+    "stackOwner": "kwtSMS"
+  }
+}
