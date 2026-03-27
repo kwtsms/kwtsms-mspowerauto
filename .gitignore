@@ -1,5 +1,6 @@
 # Local development only
 reference/
+docs/
 .claude/
 CLAUDE.md
 .worktrees/
