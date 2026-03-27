@@ -1,0 +1,44 @@
+name: OpenAPI Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apiDefinition.swagger.json'
+      - 'apiProperties.json'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apiDefinition.swagger.json'
+      - 'apiProperties.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install jsonschema
+        run: pip install jsonschema
+
+      - name: Validate JSON syntax
+        run: |
+          python3 -c "import json; json.load(open('apiDefinition.swagger.json')); print('apiDefinition.swagger.json: valid JSON')"
+          python3 -c "import json; json.load(open('apiProperties.json')); print('apiProperties.json: valid JSON')"
+
+      - name: Validate swagger structure
+        run: python3 .github/scripts/validate_connector.py
+
+      - name: Check for sensitive data
+        run: |
+          if grep -rn "mo@boxlink\|mo@kwtsms\|instabox" apiDefinition.swagger.json apiProperties.json README.md; then
+            echo "SENSITIVE DATA FOUND"
+            exit 1
+          else
+            echo "Clean: no sensitive data"
+          fi

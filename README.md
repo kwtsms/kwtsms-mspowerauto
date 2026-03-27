@@ -1,12 +1,34 @@
-# kwtSMS
+# kwtSMS for Microsoft Power Automate
 
-Send single or bulk SMS messages worldwide through the kwtSMS gateway. Check your credit balance, list approved sender IDs, validate phone numbers, and verify country coverage.
+[![OpenAPI Validation](https://github.com/boxlinknet/kwtsms-mspowerauto/actions/workflows/validate.yml/badge.svg)](https://github.com/boxlinknet/kwtsms-mspowerauto/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Power Automate](https://img.shields.io/badge/Power%20Automate-Independent%20Publisher-blue)](https://learn.microsoft.com/en-us/connectors/custom-connectors/certification-submission-ip)
+[![kwtSMS](https://img.shields.io/badge/kwtSMS-SMS%20Gateway-FFA200)](https://www.kwtsms.com)
 
-## Publisher: kwtSMS
+## About kwtSMS
+
+[kwtSMS](https://www.kwtsms.com) is a Kuwait-based SMS gateway that delivers messages to 200+ countries. Built for businesses that need reliable A2P (Application-to-Person) messaging: OTP verification, transactional alerts, marketing campaigns, and notifications. Full Arabic language support, pre-approved sender IDs, and a straightforward REST JSON interface.
+
+## About this integration
+
+A Microsoft Power Automate custom connector that brings kwtSMS into your automated workflows. Send SMS messages directly from Power Automate flows triggered by events in SharePoint, Dynamics 365, Outlook, Teams, or any of the 1,000+ connectors in the Power Platform ecosystem.
+
+Submitted as an [Independent Publisher](https://learn.microsoft.com/en-us/connectors/custom-connectors/certification-submission-ip) connector.
+
+**Publisher:** kwtSMS
+
+## Features
+
+- **Send SMS** - Send messages to one or up to 200 recipients in a single action. Supports English, Arabic, and Unicode content.
+- **Check Balance** - Monitor your available SMS credits and total purchased credits from within your flows.
+- **List Sender IDs** - Retrieve all approved sender IDs on your account for dynamic sender selection.
+- **Check Coverage** - List active country codes to verify delivery availability before sending.
+- **Validate Numbers** - Validate phone numbers in bulk. Returns numbers grouped as valid (OK), format error (ER), or no route (NR).
+- **Test Mode** - Built-in test mode on Send SMS. Messages are queued but not delivered, credits are recoverable.
 
 ## Prerequisites
 
-You need a kwtSMS account with API access enabled. Sign up at [kwtsms.com](https://www.kwtsms.com).
+You need a kwtSMS account with API access enabled. [Sign up at kwtsms.com](https://www.kwtsms.com).
 
 ## Obtaining Credentials
 
@@ -18,20 +40,13 @@ You need a kwtSMS account with API access enabled. Sign up at [kwtsms.com](https
 
 ## Supported Operations
 
-### Send SMS
-Send an SMS message to one or more recipients. Supports bulk sends with comma-separated numbers (max 200 per request). Includes an optional test mode for development.
-
-### Check Balance
-Check your available SMS credits and total purchased credits.
-
-### List Sender IDs
-List all approved sender IDs for your account.
-
-### Check Coverage
-List active country prefixes available for sending on your account.
-
-### Validate Numbers
-Validate phone numbers before sending. Returns numbers grouped as valid (OK), format error (ER), or no route (NR).
+| Operation | Description |
+|-----------|-------------|
+| **Send SMS** | Send a message to one or more recipients (max 200 per request). Optional test mode. |
+| **Check Balance** | Get available and total purchased SMS credits. |
+| **List Sender IDs** | Get all approved sender IDs for your account. |
+| **Check Coverage** | List active country codes available for sending. |
+| **Validate Numbers** | Validate phone numbers. Returns OK, ER (format error), NR (no route) arrays. |
 
 ## Important Notes
 
@@ -48,3 +63,11 @@ Validate phone numbers before sending. Returns numbers grouped as valid (OK), fo
 - Delivery reports (DLR) are not available for Kuwait numbers, only for international numbers.
 - The default `KWT-SMS` sender ID may experience delays and is blocked on some carriers. Use a private sender ID for production.
 - There is a 15-second minimum between messages to the same phone number (ERR028).
+
+## Links
+
+- [kwtSMS Website](https://www.kwtsms.com)
+- [kwtSMS Integrations](https://www.kwtsms.com/integrations.html)
+- [kwtSMS Support](https://www.kwtsms.com/support.html)
+- [Power Automate Custom Connectors](https://learn.microsoft.com/en-us/connectors/custom-connectors/)
+- [Independent Publisher Program](https://learn.microsoft.com/en-us/connectors/custom-connectors/certification-submission-ip)
