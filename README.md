@@ -62,7 +62,7 @@ You need a kwtSMS account with API access enabled. [Sign up at kwtsms.com](https
 
 - Delivery reports (DLR) are not available for Kuwait numbers, only for international numbers.
 - The default `KWT-SMS` sender ID may experience delays and is blocked on some carriers. Use a private sender ID for production.
-- There is a 15-second minimum between messages to the same phone number (ERR028).
+- ERR028 (Sent to the same number too soon) applies only when Duplicate SMS protection is turned on in your account's API settings. When it is on and any number in the request was sent the same message within the account's window (10 seconds by default, configurable per account), the whole request is rejected and nothing is charged.
 
 ## Links
 
