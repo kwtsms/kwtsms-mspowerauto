@@ -1,6 +1,6 @@
 # kwtSMS for Microsoft Power Automate
 
-[![OpenAPI Validation](https://github.com/boxlinknet/kwtsms-mspowerauto/actions/workflows/validate.yml/badge.svg)](https://github.com/boxlinknet/kwtsms-mspowerauto/actions/workflows/validate.yml)
+[![OpenAPI Validation](https://github.com/kwtsms/kwtsms-mspowerauto/actions/workflows/validate.yml/badge.svg)](https://github.com/kwtsms/kwtsms-mspowerauto/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Power Automate](https://img.shields.io/badge/Power%20Automate-Independent%20Publisher-blue)](https://learn.microsoft.com/en-us/connectors/custom-connectors/certification-submission-ip)
 [![kwtSMS](https://img.shields.io/badge/kwtSMS-SMS%20Gateway-FFA200)](https://www.kwtsms.com)
