@@ -231,7 +231,7 @@
               "properties": {
                 "mobile": {
                   "type": "string",
-                  "description": "Phone number(s) to validate, comma-separated (digits only, international format, for example 96598765432)",
+                  "description": "Phone number(s) to validate, comma-separated (digits only, international format, for example 965XXXXXXXX)",
                   "title": "Mobile Number(s)"
                 }
               },
@@ -326,7 +326,7 @@
     "/send/": {
       "post": {
         "summary": "Send SMS",
-        "description": "Send an SMS message to one or more recipients. For bulk sends, provide comma-separated numbers (max 200 per request). Numbers must be in international format, digits only (for example 96598765432).",
+        "description": "Send an SMS message to one or more recipients. For bulk sends, provide comma-separated numbers (max 200 per request). Numbers must be in international format, digits only (for example 965XXXXXXXX).",
         "operationId": "SendSMS",
         "parameters": [
           {
@@ -338,7 +338,7 @@
               "properties": {
                 "mobile": {
                   "type": "string",
-                  "description": "Recipient phone number(s), comma-separated for bulk (max 200). Digits only, international format (for example 96598765432)",
+                  "description": "Recipient phone number(s), comma-separated for bulk (max 200). Digits only, international format (for example 965XXXXXXXX)",
                   "title": "Mobile Number(s)"
                 },
                 "message": {

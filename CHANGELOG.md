@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Docs and examples use the placeholder 965XXXXXXXX instead of a sample mobile number.
+
 ### Docs
 - ERR028: duplicate SMS protection is opt-in per account with a configurable window (10 seconds by default), not a fixed 15 seconds
 

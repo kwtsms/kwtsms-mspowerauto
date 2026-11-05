@@ -50,7 +50,7 @@ You need a kwtSMS account with API access enabled. [Sign up at kwtsms.com](https
 
 ## Important Notes
 
-- Phone numbers must be in international format, digits only (for example `96598765432`). No `+` prefix, no spaces, no dashes.
+- Phone numbers must be in international format, digits only (for example `965XXXXXXXX`). No `+` prefix, no spaces, no dashes.
 - Sender ID is case sensitive. `KWT-SMS` is for testing only, register a private sender ID for production use.
 - English messages: 160 characters per page. Arabic messages: 70 characters per page.
 - Messages must not contain emojis or HTML tags.
