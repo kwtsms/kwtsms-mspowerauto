@@ -71,6 +71,26 @@
           "x-ms-apimTemplateParameter.propertyValuePathTemplate": "@connectionParameters('senderID')",
           "x-ms-apimTemplate-policySection": "Request"
         }
+      },
+      {
+        "templateId": "setheader",
+        "title": "Identify the connector in the User-Agent",
+        "parameters": {
+          "x-ms-apimTemplateParameter.name": "User-Agent",
+          "x-ms-apimTemplateParameter.value": "kwtsms-powerautomate/1.0",
+          "x-ms-apimTemplateParameter.existsAction": "override",
+          "x-ms-apimTemplate-policySection": "Request"
+        }
+      },
+      {
+        "templateId": "setproperty",
+        "title": "Identify the connector in the body",
+        "parameters": {
+          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
+          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "client",
+          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "kwtsms-powerautomate/1.0",
+          "x-ms-apimTemplate-policySection": "Request"
+        }
       }
     ],
     "publisher": "kwtSMS",

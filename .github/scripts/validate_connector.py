@@ -60,6 +60,19 @@ def validate():
         if not props.get(field):
             errors.append(f"apiProperties missing: {field}")
 
+    # 2026-11-05 14:53 +03: the User-Agent header and the body "client" field must both carry
+    # kwtsms-powerautomate/<info.version>, so a version bump cannot leave a stale token, #939.
+    token = "kwtsms-powerautomate/" + d.get("info", {}).get("version", "")
+    policies = props.get("policyTemplateInstances", [])
+    ua = [x for x in policies if x.get("templateId") == "setheader"
+          and x.get("parameters", {}).get("x-ms-apimTemplateParameter.name") == "User-Agent"]
+    if len(ua) != 1 or ua[0]["parameters"].get("x-ms-apimTemplateParameter.value") != token:
+        errors.append(f"User-Agent setheader policy must be exactly one, value {token}")
+    client = [x for x in policies if x.get("templateId") == "setproperty"
+              and x.get("parameters", {}).get("x-ms-apimTemplateParameter.newPropertySubPathTemplate") == "client"]
+    if len(client) != 1 or client[0]["parameters"].get("x-ms-apimTemplateParameter.propertyValuePathTemplate") != token:
+        errors.append(f"client setproperty policy must be exactly one, value {token}")
+
     if errors:
         print("VALIDATION FAILED:")
         for e in errors:
