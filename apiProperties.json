@@ -5,7 +5,7 @@
         "type": "string",
         "uiDefinition": {
           "displayName": "Username",
-          "description": "Your kwtSMS account username",
+          "description": "Your kwtSMS API username (API information page in your account, not your mobile number)",
           "tooltip": "Enter your kwtSMS username (not your mobile number)",
           "constraints": {
             "tabIndex": 1,
@@ -17,7 +17,7 @@
         "type": "securestring",
         "uiDefinition": {
           "displayName": "Password",
-          "description": "Your kwtSMS account password",
+          "description": "Your kwtSMS API password (API information page in your account)",
           "tooltip": "Enter your kwtSMS password",
           "constraints": {
             "tabIndex": 2,
