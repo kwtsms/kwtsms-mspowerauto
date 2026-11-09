@@ -33,10 +33,10 @@ You need a kwtSMS account with API access enabled. [Sign up at kwtsms.com](https
 ## Obtaining Credentials
 
 1. Log in to your kwtSMS account at [kwtsms.com](https://www.kwtsms.com)
-2. Your API credentials are the same username and password you use to log in
+2. Open the API information page and copy your API username and API password. They are issued separately: not your mobile number or account login
 3. You need at least one approved Sender ID. The default testing sender is `KWT-SMS`
 
-**Note:** Your API username is NOT your mobile number. Use the account username and password.
+**Note:** Your API username is NOT your mobile number or your account login. Use the API username and password from the API information page.
 
 ## Supported Operations
 
@@ -56,7 +56,7 @@ You need a kwtSMS account with API access enabled. [Sign up at kwtsms.com](https
 - Messages must not contain emojis or HTML tags.
 - Maximum 200 numbers per Send SMS request. For larger lists, split into multiple requests.
 - The `unix-timestamp` in responses uses GMT+3 (Asia/Kuwait) server time, not UTC.
-- Set test mode to 1 during development. Messages are queued but not delivered, and credits can be recovered by deleting from the sending queue in your kwtSMS dashboard.
+- Set test mode to 1 during development. Messages are queued but not delivered, and credits can be recovered by deleting them from the Queue in your kwtSMS dashboard.
 
 ## Known Issues and Limitations
 
