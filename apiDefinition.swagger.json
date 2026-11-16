@@ -29,60 +29,40 @@
         "operationId": "CheckBalance",
         "responses": {
           "200": {
-            "description": "Balance retrieved successfully",
+            "description": "Balance retrieved successfully.",
             "schema": {
               "type": "object",
               "properties": {
                 "result": {
                   "type": "string",
-                  "description": "OK on success, ERROR on failure",
+                  "description": "OK on success, ERROR on failure.",
                   "title": "Result"
                 },
                 "available": {
                   "type": "number",
-                  "description": "Available SMS credits",
+                  "description": "Available SMS credits.",
                   "title": "Available Credits"
                 },
                 "purchased": {
                   "type": "number",
-                  "description": "Total purchased SMS credits",
+                  "description": "Total purchased SMS credits.",
                   "title": "Purchased Credits"
                 },
                 "code": {
                   "type": "string",
-                  "description": "Error code (only present on error)",
+                  "description": "Error code (only present on error).",
                   "title": "Error Code"
                 },
                 "description": {
                   "type": "string",
-                  "description": "Error description (only present on error)",
+                  "description": "Error description (only present on error).",
                   "title": "Error Description"
                 }
               }
             }
           },
           "default": {
-            "description": "Error response",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string",
-                  "description": "ERROR",
-                  "title": "Result"
-                },
-                "code": {
-                  "type": "string",
-                  "description": "Error code (for example ERR003)",
-                  "title": "Error Code"
-                },
-                "description": {
-                  "type": "string",
-                  "description": "Error description",
-                  "title": "Error Description"
-                }
-              }
-            }
+            "description": "Error response from the kwtSMS gateway."
           }
         },
         "x-ms-visibility": "important"
@@ -95,13 +75,13 @@
         "operationId": "ListSenderIDs",
         "responses": {
           "200": {
-            "description": "Sender IDs retrieved successfully",
+            "description": "Sender IDs retrieved successfully.",
             "schema": {
               "type": "object",
               "properties": {
                 "result": {
                   "type": "string",
-                  "description": "OK on success, ERROR on failure",
+                  "description": "OK on success, ERROR on failure.",
                   "title": "Result"
                 },
                 "senderid": {
@@ -109,44 +89,24 @@
                   "items": {
                     "type": "string"
                   },
-                  "description": "List of approved sender IDs",
+                  "description": "List of approved sender IDs.",
                   "title": "Sender IDs"
                 },
                 "code": {
                   "type": "string",
-                  "description": "Error code (only present on error)",
+                  "description": "Error code (only present on error).",
                   "title": "Error Code"
                 },
                 "description": {
                   "type": "string",
-                  "description": "Error description (only present on error)",
+                  "description": "Error description (only present on error).",
                   "title": "Error Description"
                 }
               }
             }
           },
           "default": {
-            "description": "Error response",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string",
-                  "description": "ERROR",
-                  "title": "Result"
-                },
-                "code": {
-                  "type": "string",
-                  "description": "Error code (for example ERR003)",
-                  "title": "Error Code"
-                },
-                "description": {
-                  "type": "string",
-                  "description": "Error description",
-                  "title": "Error Description"
-                }
-              }
-            }
+            "description": "Error response from the kwtSMS gateway."
           }
         },
         "x-ms-visibility": "advanced"
@@ -159,13 +119,13 @@
         "operationId": "CheckCoverage",
         "responses": {
           "200": {
-            "description": "Coverage list retrieved successfully",
+            "description": "Coverage list retrieved successfully.",
             "schema": {
               "type": "object",
               "properties": {
                 "result": {
                   "type": "string",
-                  "description": "OK on success, ERROR on failure",
+                  "description": "OK on success, ERROR on failure.",
                   "title": "Result"
                 },
                 "prefixes": {
@@ -173,44 +133,24 @@
                   "items": {
                     "type": "string"
                   },
-                  "description": "List of active country codes",
+                  "description": "List of active country codes.",
                   "title": "Country Codes"
                 },
                 "code": {
                   "type": "string",
-                  "description": "Error code (only present on error)",
+                  "description": "Error code (only present on error).",
                   "title": "Error Code"
                 },
                 "description": {
                   "type": "string",
-                  "description": "Error description (only present on error)",
+                  "description": "Error description (only present on error).",
                   "title": "Error Description"
                 }
               }
             }
           },
           "default": {
-            "description": "Error response",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string",
-                  "description": "ERROR",
-                  "title": "Result"
-                },
-                "code": {
-                  "type": "string",
-                  "description": "Error code (for example ERR003)",
-                  "title": "Error Code"
-                },
-                "description": {
-                  "type": "string",
-                  "description": "Error description",
-                  "title": "Error Description"
-                }
-              }
-            }
+            "description": "Error response from the kwtSMS gateway."
           }
         },
         "x-ms-visibility": "advanced"
@@ -231,30 +171,32 @@
               "properties": {
                 "mobile": {
                   "type": "string",
-                  "description": "Phone number(s) to validate, comma-separated (digits only, international format, for example 965XXXXXXXX)",
+                  "description": "Phone number(s) to validate, comma-separated (digits only, international format, for example 965XXXXXXXX).",
                   "title": "Mobile Number(s)"
                 }
               },
               "required": [
                 "mobile"
               ]
-            }
+            },
+            "x-ms-summary": "Request",
+            "description": "Request body for this operation."
           }
         ],
         "responses": {
           "200": {
-            "description": "Validation results",
+            "description": "Validation results.",
             "schema": {
               "type": "object",
               "properties": {
                 "result": {
                   "type": "string",
-                  "description": "OK on success, ERROR on failure",
+                  "description": "OK on success, ERROR on failure.",
                   "title": "Result"
                 },
                 "mobile": {
                   "type": "object",
-                  "description": "Validation results grouped by status",
+                  "description": "Validation results grouped by status.",
                   "title": "Validation Results",
                   "properties": {
                     "OK": {
@@ -262,7 +204,7 @@
                       "items": {
                         "type": "string"
                       },
-                      "description": "Valid and routable numbers",
+                      "description": "Valid and routable numbers.",
                       "title": "Valid Numbers"
                     },
                     "ER": {
@@ -270,7 +212,7 @@
                       "items": {
                         "type": "string"
                       },
-                      "description": "Numbers with format errors",
+                      "description": "Numbers with format errors.",
                       "title": "Error Numbers"
                     },
                     "NR": {
@@ -278,46 +220,26 @@
                       "items": {
                         "type": "string"
                       },
-                      "description": "Numbers with no route (country not activated)",
+                      "description": "Numbers with no route (country not activated).",
                       "title": "No Route Numbers"
                     }
                   }
                 },
                 "code": {
                   "type": "string",
-                  "description": "Error code (only present on error)",
+                  "description": "Error code (only present on error).",
                   "title": "Error Code"
                 },
                 "description": {
                   "type": "string",
-                  "description": "Error description (only present on error)",
+                  "description": "Error description (only present on error).",
                   "title": "Error Description"
                 }
               }
             }
           },
           "default": {
-            "description": "Error response",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string",
-                  "description": "ERROR",
-                  "title": "Result"
-                },
-                "code": {
-                  "type": "string",
-                  "description": "Error code (for example ERR003)",
-                  "title": "Error Code"
-                },
-                "description": {
-                  "type": "string",
-                  "description": "Error description",
-                  "title": "Error Description"
-                }
-              }
-            }
+            "description": "Error response from the kwtSMS gateway."
           }
         },
         "x-ms-visibility": "advanced"
@@ -338,7 +260,7 @@
               "properties": {
                 "mobile": {
                   "type": "string",
-                  "description": "Recipient phone number(s), comma-separated for bulk (max 200). Digits only, international format (for example 965XXXXXXXX)",
+                  "description": "Recipient phone number(s), comma-separated for bulk (max 200). Digits only, international format (for example 965XXXXXXXX).",
                   "title": "Mobile Number(s)"
                 },
                 "message": {
@@ -348,7 +270,7 @@
                 },
                 "test": {
                   "type": "integer",
-                  "description": "Set to 1 for test mode (message queued but not delivered, credits recoverable). Default: 0",
+                  "description": "Set to 1 for test mode (message queued but not delivered, credits recoverable). Default is 0.",
                   "title": "Test Mode",
                   "default": 0,
                   "enum": [
@@ -362,83 +284,65 @@
                 "mobile",
                 "message"
               ]
-            }
+            },
+            "x-ms-summary": "Request",
+            "description": "Request body for this operation."
           }
         ],
         "responses": {
           "200": {
-            "description": "SMS send result",
+            "description": "SMS send result.",
             "schema": {
               "type": "object",
               "properties": {
                 "result": {
                   "type": "string",
-                  "description": "OK on success, ERROR on failure",
+                  "description": "OK on success, ERROR on failure.",
                   "title": "Result"
                 },
                 "msg-id": {
                   "type": "string",
-                  "description": "Message identifier (save this for status lookups)",
+                  "description": "Message identifier (save this for status lookups).",
                   "title": "Message ID"
                 },
                 "numbers": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "Count of numbers accepted and dispatched",
+                  "description": "Count of numbers accepted and dispatched.",
                   "title": "Numbers Sent"
                 },
                 "points-charged": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "SMS credits deducted",
+                  "description": "SMS credits deducted.",
                   "title": "Points Charged"
                 },
                 "balance-after": {
                   "type": "number",
-                  "description": "Account balance after deduction",
+                  "description": "Account balance after deduction.",
                   "title": "Balance After"
                 },
                 "unix-timestamp": {
                   "type": "integer",
                   "format": "int64",
-                  "description": "Server timestamp (GMT+3 Asia/Kuwait)",
+                  "description": "Server timestamp (GMT+3 Asia/Kuwait).",
                   "title": "Timestamp"
                 },
                 "code": {
                   "type": "string",
-                  "description": "Error code (only present on error)",
+                  "description": "Error code (only present on error).",
                   "title": "Error Code"
                 },
                 "description": {
                   "type": "string",
-                  "description": "Error description (only present on error)",
+                  "description": "Error description (only present on error).",
                   "title": "Error Description"
                 }
               }
             }
           },
           "default": {
-            "description": "Error response",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "result": {
-                  "type": "string",
-                  "description": "ERROR",
-                  "title": "Result"
-                },
-                "code": {
-                  "type": "string",
-                  "description": "Error code (for example ERR003)",
-                  "title": "Error Code"
-                },
-                "description": {
-                  "type": "string",
-                  "description": "Error description",
-                  "title": "Error Description"
-                }
-              }
-            }
+            "description": "Error response from the kwtSMS gateway."
           }
         },
         "x-ms-visibility": "important"
