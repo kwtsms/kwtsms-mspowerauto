@@ -26,7 +26,7 @@ You need a kwtSMS account with API access enabled. Sign up at https://www.kwtsms
 
 ## Creating a connection
 
-The connection asks for three values: Username (API username), Password (API password) and Sender ID (case sensitive). They are added to each request by the connector.
+The connection asks for two values: API username and API password. They are added to each request by the connector. In the Send SMS action, pick the Sender ID from the list of Sender IDs on your account.
 
 ## Getting started
 

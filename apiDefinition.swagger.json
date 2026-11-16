@@ -258,6 +258,15 @@
             "schema": {
               "type": "object",
               "properties": {
+                "sender": {
+                  "type": "string",
+                  "title": "Sender ID",
+                  "description": "The Sender ID the message comes from. Pick one of the Sender IDs on your kwtSMS account.",
+                  "x-ms-dynamic-values": {
+                    "operationId": "ListSenderIDs",
+                    "value-collection": "senderid"
+                  }
+                },
                 "mobile": {
                   "type": "string",
                   "description": "Recipient phone number(s), comma-separated for bulk (max 200). Digits only, international format (for example 965XXXXXXXX).",
@@ -281,6 +290,7 @@
                 }
               },
               "required": [
+                "sender",
                 "mobile",
                 "message"
               ]
@@ -352,8 +362,16 @@
   "definitions": {},
   "parameters": {},
   "responses": {},
-  "securityDefinitions": {},
-  "security": [],
+  "securityDefinitions": {
+    "basic_auth": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
   "tags": [],
   "x-ms-connector-metadata": [
     {

@@ -2,13 +2,14 @@
   "properties": {
     "connectionParameters": {
       "username": {
-        "type": "string",
+        "type": "securestring",
         "uiDefinition": {
-          "displayName": "Username",
-          "description": "Your kwtSMS API username (API information page in your account, not your mobile number)",
-          "tooltip": "Enter your kwtSMS username (not your mobile number)",
+          "displayName": "API username",
+          "description": "Your kwtSMS API username (API information page in your kwtSMS account, not your mobile number).",
+          "tooltip": "Enter your kwtSMS API username",
           "constraints": {
-            "tabIndex": 1,
+            "tabIndex": 2,
+            "clearText": true,
             "required": "true"
           }
         }
@@ -16,24 +17,12 @@
       "password": {
         "type": "securestring",
         "uiDefinition": {
-          "displayName": "Password",
-          "description": "Your kwtSMS API password (API information page in your account)",
-          "tooltip": "Enter your kwtSMS password",
-          "constraints": {
-            "tabIndex": 2,
-            "clearText": false,
-            "required": "true"
-          }
-        }
-      },
-      "senderID": {
-        "type": "string",
-        "uiDefinition": {
-          "displayName": "Sender ID",
-          "description": "Your approved sender ID",
-          "tooltip": "Enter your approved kwtSMS sender ID (case sensitive)",
+          "displayName": "API password",
+          "description": "Your kwtSMS API password (API information page in your kwtSMS account).",
+          "tooltip": "Enter your kwtSMS API password",
           "constraints": {
             "tabIndex": 3,
+            "clearText": false,
             "required": "true"
           }
         }
@@ -41,59 +30,15 @@
     },
     "iconBrandColor": "#FFA200",
     "capabilities": [],
-    "policyTemplateInstances": [
-      {
-        "templateId": "setproperty",
-        "title": "Inject username into body",
-        "parameters": {
-          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
-          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "username",
-          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "@connectionParameters('username')",
-          "x-ms-apimTemplate-policySection": "Request"
-        }
-      },
-      {
-        "templateId": "setproperty",
-        "title": "Inject password into body",
-        "parameters": {
-          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
-          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "password",
-          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "@connectionParameters('password')",
-          "x-ms-apimTemplate-policySection": "Request"
-        }
-      },
-      {
-        "templateId": "setproperty",
-        "title": "Inject sender into body",
-        "parameters": {
-          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
-          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "sender",
-          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "@connectionParameters('senderID')",
-          "x-ms-apimTemplate-policySection": "Request"
-        }
-      },
-      {
-        "templateId": "setheader",
-        "title": "Identify the connector in the User-Agent",
-        "parameters": {
-          "x-ms-apimTemplateParameter.name": "User-Agent",
-          "x-ms-apimTemplateParameter.value": "kwtsms-powerautomate/1.0",
-          "x-ms-apimTemplateParameter.existsAction": "override",
-          "x-ms-apimTemplate-policySection": "Request"
-        }
-      },
-      {
-        "templateId": "setproperty",
-        "title": "Identify the connector in the body",
-        "parameters": {
-          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
-          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "client",
-          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "kwtsms-powerautomate/1.0",
-          "x-ms-apimTemplate-policySection": "Request"
-        }
-      }
-    ],
+    "policyTemplateInstances": [],
     "publisher": "kwtSMS",
-    "stackOwner": "kwtSMS"
+    "stackOwner": "kwtSMS",
+    "scriptOperations": [
+      "CheckBalance",
+      "ListSenderIDs",
+      "CheckCoverage",
+      "ValidateNumbers",
+      "SendSMS"
+    ]
   }
 }
