@@ -60,18 +60,21 @@ def validate():
         if not props.get(field):
             errors.append(f"apiProperties missing: {field}")
 
-    # 2026-11-05 14:53 +03: the User-Agent header and the body "client" field must both carry
-    # kwtsms-powerautomate/<info.version>, so a version bump cannot leave a stale token, #939.
-    token = "kwtsms-powerautomate/" + d.get("info", {}).get("version", "")
-    policies = props.get("policyTemplateInstances", [])
-    ua = [x for x in policies if x.get("templateId") == "setheader"
-          and x.get("parameters", {}).get("x-ms-apimTemplateParameter.name") == "User-Agent"]
-    if len(ua) != 1 or ua[0]["parameters"].get("x-ms-apimTemplateParameter.value") != token:
-        errors.append(f"User-Agent setheader policy must be exactly one, value {token}")
-    client = [x for x in policies if x.get("templateId") == "setproperty"
-              and x.get("parameters", {}).get("x-ms-apimTemplateParameter.newPropertySubPathTemplate") == "client"]
-    if len(client) != 1 or client[0]["parameters"].get("x-ms-apimTemplateParameter.propertyValuePathTemplate") != token:
-        errors.append(f"client setproperty policy must be exactly one, value {token}")
+    # 2026-11-18 10:50 +03: since a92831a (2026-11-16) script.csx sets the User-Agent and the policies are gone;
+    # check the script constant instead of setheader/setproperty policies (stale check failed CI on main), repo sweep.
+    # Was (2026-11-05, #939): one setheader User-Agent and one setproperty "client" policy = kwtsms-powerautomate/<info.version>.
+    import re
+    if props.get("policyTemplateInstances"):
+        errors.append("policyTemplateInstances must be empty: script.csx sets the User-Agent and the credentials")
+    try:
+        script = open("script.csx", encoding="utf-8").read()
+    except OSError:
+        script = ""
+    ua = re.findall(r'UserAgent\s*=\s*"(kwtsms-powerautomate/\d+\.\d+(?:\.\d+)?)"', script)
+    if len(ua) != 1:
+        errors.append("script.csx must define exactly one UserAgent = \"kwtsms-powerautomate/<version>\"")
+    if not props.get("scriptOperations"):
+        errors.append("apiProperties scriptOperations is empty: script.csx would not run")
 
     if errors:
         print("VALIDATION FAILED:")
