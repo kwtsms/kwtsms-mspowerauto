@@ -1,16 +1,23 @@
 name: OpenAPI Validation
 
+# 2026-11-18 10:57 +03: also run when the script, the validator or this file changes (a92831a broke main unseen), repo sweep
 on:
   push:
     branches: [main]
     paths:
       - 'apiDefinition.swagger.json'
       - 'apiProperties.json'
+      - 'script.csx'
+      - '.github/scripts/validate_connector.py'
+      - '.github/workflows/validate.yml'
   pull_request:
     branches: [main]
     paths:
       - 'apiDefinition.swagger.json'
       - 'apiProperties.json'
+      - 'script.csx'
+      - '.github/scripts/validate_connector.py'
+      - '.github/workflows/validate.yml'
 
 jobs:
   validate:
