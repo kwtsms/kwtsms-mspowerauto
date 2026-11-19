@@ -13,6 +13,8 @@
 
 A Microsoft Power Automate custom connector that brings kwtSMS into your automated workflows. Send SMS messages directly from Power Automate flows triggered by events in SharePoint, Dynamics 365, Outlook, Teams, or any of the 1,000+ connectors in the Power Platform ecosystem.
 
+All kwtSMS integrations: [kwtsms.com/integrations](https://www.kwtsms.com/integrations/)
+
 Submitted as an [Independent Publisher](https://learn.microsoft.com/en-us/connectors/custom-connectors/certification-submission-ip) connector.
 
 **Publisher:** kwtSMS
